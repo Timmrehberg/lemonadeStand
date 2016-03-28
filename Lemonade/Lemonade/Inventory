@@ -1,0 +1,72 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lemonade
+{
+    public class Inventory
+    {
+        public int cups;
+        public int lemons;
+        public int sugar;
+        public int ice;
+        public double cash = 20;
+        public int Buycups()
+        {
+            cups += 100;
+            cash -= 2.50;
+            return cups;
+        }
+        public int Buylemons()
+        {
+            lemons += 30;
+            cash -= 2.15;
+            return lemons;
+
+        }
+        public int Buysugar()
+        {
+            sugar += 20;
+            cash -= 1.60;
+            return sugar;
+        }
+        public int Buyice()
+        {
+            ice += 250;
+            cash -= 2.07;
+            return ice;
+        }
+        public void Checkinventory()
+        {
+            Console.WriteLine("You have " + cups + " cups ");
+            Console.WriteLine("You have " + lemons + " Lemons");
+            Console.WriteLine("You have " + sugar + " sugar");
+            Console.WriteLine("You have " + ice + " ice cubes");
+            Console.WriteLine("You have " + cash + " cash");
+            if (cash <= 0)
+            {
+                Console.WriteLine("Youre Broke");
+            }
+
+        }
+        public void Checkrequriements()
+        {
+
+            if (lemons > 0 && cups > 0 && sugar > 0 && ice > 0)
+            {
+                Console.WriteLine("Time to make lemonade");
+
+
+
+            }
+            else if (lemons <= 0 || cups <= 0 || sugar <= 0 || ice <= 0)
+            {
+                Console.WriteLine("You dont have the required components to make lemonade!");
+            }
+
+
+        }
+    }
+}
