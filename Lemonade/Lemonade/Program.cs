@@ -12,17 +12,22 @@ namespace Lemonade
         static void Main(string[] args)
         {
             StoreManagement players = new StoreManagement();
-            Game game = new Game();          
-            game.Start();
+            Game game = new Game();
+            game.StartDay1();
             game.StartDay2();
+            game.StartDay3();
+            game.StartDay4();
+            game.StartDay5();
+            game.StartDay6();
+            game.StartDay7();
 
-          
-             
-            
-            
-            
 
-            }
+
+
+
+
+
+        }
         }
     }
 

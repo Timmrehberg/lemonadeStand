@@ -29,7 +29,7 @@ namespace Lemonade
         }
         public int Addsugar(Player name)
         {
-            sugar += 20;
+            sugar += 60;
             name.cash -= 3.46;
             return sugar;
         }

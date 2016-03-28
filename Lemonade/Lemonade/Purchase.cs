@@ -12,7 +12,6 @@ namespace Lemonade
 
         List<Player> Playerstats = new List<Player>();
         StoreManagement store = new StoreManagement();
-        Player playermain = new Player(0,0,0,0);
         
 
 
@@ -22,7 +21,7 @@ namespace Lemonade
 
         public void BuyLemons(Player player)
         {
-            Playerstats.Add(player);
+            
 
 
             Console.WriteLine("Do you want to buy lemons Y/N?");
@@ -108,10 +107,13 @@ namespace Lemonade
             if (name.cash <= 0)
                 
             {
-                Console.WriteLine("Youre Broke");
+                Console.WriteLine("The lemonade business is not for everybody you have to sell remaining supplies and retire");
+                Console.ReadLine();
+                Environment.Exit(0);
+                
             }
         }
-        public void Checkremainingsupplies()
+        public void Checkremainingsupplies(Player player)
         {
             if (store.lemons > 0 && store.cups > 0 && store.sugar > 0 && store.ice > 0)
             {
@@ -124,11 +126,11 @@ namespace Lemonade
             }
             else if (store.lemons <= 0 || store.cups <= 0 || store.sugar <= 0 || store.ice <= 0)
             {
-                Console.WriteLine("You have to run to the store and get more materials");
-                BuyCups(playermain);
-                BuyIce(playermain);
-                BuyLemons(playermain);
-                BuySugar(playermain);
+                Console.WriteLine("You need materials scream until your mom goes to the store daylight is burning!");
+                BuyCups(player);
+                BuyIce(player);
+                BuyLemons(player);
+                BuySugar(player);
 
                 
                 

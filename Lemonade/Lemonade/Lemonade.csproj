@@ -44,8 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer.cs" />
+    <Compile Include="Daysofgameplay.cs" />
     <Compile Include="Game.cs" />
-    <None Include="Inventory" />
+    <Compile Include="weatheraffectingcustomers.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

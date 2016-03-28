@@ -17,18 +17,11 @@ namespace Lemonade
             pricecap = PriceCap;
            
         }
-        public void Day1()
-        {
-            Console.WriteLine("Its 83 and sunny!");
-            pricecap += 5.00;
+    
         }
-        public void Day2()
-        {
-            pricecap -= 0.5;
-        }
-       
+        
+     
 
         
 
     }
-}
