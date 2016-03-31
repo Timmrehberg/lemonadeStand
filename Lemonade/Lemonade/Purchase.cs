@@ -93,8 +93,8 @@ namespace Lemonade
         {
             store.cups -= 1;
             store.lemons -= 1;
-            store.ice -= 4;
-            store.sugar -= 2;
+            store.ice -= 3;
+            store.sugar -= 1;
             
         }
         public void Checkinventory(Player name)

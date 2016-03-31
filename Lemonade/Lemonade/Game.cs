@@ -8,6 +8,8 @@ namespace Lemonade
 {
     public class Game 
     {
+        List<int> Missedsales = new List<int>();
+        List<int> Glassessold = new List<int>();
 
         public Player Mainplayer = new Player(0, 0, 0, 0);
 
@@ -20,21 +22,21 @@ namespace Lemonade
 
         Customer Joe = new Customer("Joe", 0.50);
         Customer Kim = new Customer("Kim", 0.65);
-        Customer Timmy = new Customer("Tim", 0.80);
-        Customer Poe = new Customer("Poe", 0.85);
-        Customer Moe = new Customer("Moe", 1.00);
-        Customer Loe = new Customer("Loe", 1.00);
+        Customer Timmy = new Customer("Tim", 0.50);
+        Customer Poe = new Customer("Poe", 0.65);
+        Customer Moe = new Customer("Moe", 0.55);
+        Customer Loe = new Customer("Loe", 0.75);
         Customer Boe = new Customer("Boe", 0.65);
         Customer Tom = new Customer("Tom", 0.75);
-        Customer Pit = new Customer("Pit", 0.45);
-        Customer Mitt = new Customer("Mitt", 0.75);
-        Customer Kimm = new Customer("Kimm", 0.95);
-        Customer Fin = new Customer("Fin", 0.90);
-        Customer Jimmy = new Customer("Jimmy", 1.00);
+        Customer Pit = new Customer("Pit", 0.50);
+        Customer Mitt = new Customer("Mitt", 0.65);
+        Customer Kimm = new Customer("Kimm", 0.70);
+        Customer Fin = new Customer("Fin", 0.65);
+        Customer Jimmy = new Customer("Jimmy", 0.60);
         Customer Mooe = new Customer("Mooe", 0.70);
-        Customer Loell = new Customer("Loell", 0.90);
+        Customer Loell = new Customer("Loell", 0.85);
         Customer Bohem = new Customer("Bohem", 0.85);
-        Customer Rodger = new Customer("Rodger", 1.00);
+        Customer Rodger = new Customer("Rodger", 0.70);
         StoreManagement Player = new StoreManagement();
         List<Customer> customers = new List<Customer>();
 
@@ -89,17 +91,23 @@ namespace Lemonade
                     if (priceperglass > customer.pricecap)
                     {
                         Console.WriteLine("Missed sale");
+                        Missedsales.Add(Missedsales.Count + 1);
                         
+                        
+                       
+
 
                     }
                     else if (priceperglass <= customer.pricecap)
                     {
                         Console.WriteLine("Made a sale");
-                        
                         Mainplayer.cash += priceperglass;
                         Console.WriteLine(Mainplayer.cash);
                         purchase.subtractMaterials(Mainplayer);
                         purchase.Checkremainingsupplies(Mainplayer);
+                        Glassessold.Add(Glassessold.Count + 1);
+
+                        
                     }
                 }
 
@@ -136,6 +144,11 @@ namespace Lemonade
                 customer.pricecap += .10;
             }
         }
+        public void RestartList()
+        {
+            Missedsales.Clear();
+            Glassessold.Clear();
+        }
 
 
 
@@ -151,6 +164,8 @@ namespace Lemonade
             Setprice(Mainplayer);
             purchase.Checkinventory(Mainplayer);
             purchase.Checkremainingsupplies(Mainplayer);
+            Console.WriteLine("You missed " + Missedsales.Count + " You sold " + Glassessold.Count);
+            RestartList();
 
 
         }
@@ -158,7 +173,6 @@ namespace Lemonade
         {
             RevertCapFromRaise();
             dailyweather.Daytwo();
-            AddCustomers();
             LowerCap();
             purchase.BuyLemons(Mainplayer);
             purchase.BuyCups(Mainplayer);
@@ -167,12 +181,14 @@ namespace Lemonade
             Setprice(Mainplayer);
             purchase.Checkinventory(Mainplayer);
             purchase.Checkremainingsupplies(Mainplayer);
+            Console.WriteLine("You missed " + Missedsales.Count + " You sold " + Glassessold.Count);
+            RestartList();
         }
         public void StartDay3()
         {
             RevertCapFromLower();
             dailyweather.Daythree();
-            AddCustomers();
+            //AddCustomers();
             LowerCap();
             purchase.BuyLemons(Mainplayer);
             purchase.BuyCups(Mainplayer);
@@ -181,11 +197,15 @@ namespace Lemonade
             Setprice(Mainplayer);
             purchase.Checkinventory(Mainplayer);
             purchase.Checkremainingsupplies(Mainplayer);
+            Console.WriteLine("You missed " + Missedsales.Count + " You sold " + Glassessold.Count);
+            RestartList();
         }
         public void StartDay4()
         {
             RevertCapFromLower();
             dailyweather.Dayfour();
+            Console.WriteLine("Youre business is starting to get bigger expect more customers!");
+            Console.ReadLine();
             AddCustomers();
             LowerCap();
             purchase.BuyLemons(Mainplayer);
@@ -195,12 +215,13 @@ namespace Lemonade
             Setprice(Mainplayer);
             purchase.Checkinventory(Mainplayer);
             purchase.Checkremainingsupplies(Mainplayer);
+            Console.WriteLine("You missed " + Missedsales.Count + " You sold " + Glassessold.Count);
+            RestartList();
         }
         public void StartDay5()
         {
             RevertCapFromLower();
             dailyweather.Dayfive();
-            AddCustomers();
             RaiseCap();
             purchase.BuyLemons(Mainplayer);
             purchase.BuyCups(Mainplayer);
@@ -209,13 +230,14 @@ namespace Lemonade
             Setprice(Mainplayer);
             purchase.Checkinventory(Mainplayer);
             purchase.Checkremainingsupplies(Mainplayer);
+            Console.WriteLine("You missed " + Missedsales.Count + " You sold " + Glassessold.Count);
+            RestartList();
 
         }
         public void StartDay6()
         {
             RevertCapFromRaise();
             dailyweather.Daysix();
-            AddCustomers();
             RaiseCap();
             purchase.BuyLemons(Mainplayer);
             purchase.BuyCups(Mainplayer);
@@ -224,13 +246,14 @@ namespace Lemonade
             Setprice(Mainplayer);
             purchase.Checkinventory(Mainplayer);
             purchase.Checkremainingsupplies(Mainplayer);
+            Console.WriteLine("You missed " + Missedsales.Count + " You sold " + Glassessold.Count);
+            RestartList();
         }
         public void StartDay7()
         {
             RevertCapFromRaise();
             dailyweather.Dayseven();
-            AddCustomers();
-            this.RaiseCap();
+            RaiseCap();
             purchase.BuyLemons(Mainplayer);
             purchase.BuyCups(Mainplayer);
             purchase.BuyIce(Mainplayer);
@@ -238,11 +261,154 @@ namespace Lemonade
             Setprice(Mainplayer);
             purchase.Checkinventory(Mainplayer);
             purchase.Checkremainingsupplies(Mainplayer);
-        }
+            Console.WriteLine("You missed " + Missedsales.Count + " You sold " + Glassessold.Count);
+            RestartList();
+            Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine("Do you want to continue playing? Y or N");
+            string extendgameplay = Console.ReadLine();
+            switch (extendgameplay)
+            {
+                case "N":
+                    if(Mainplayer.cash > 100)
+                    {
+                        Console.WriteLine("You killed it");
+                    }
+                    else if (Mainplayer.cash > 40)
+                    {
+                        Console.WriteLine("Your a lemonade guru");
+                    }
+                    else if(Mainplayer.cash < 30)
+                    {
+                        Console.WriteLine("You barely made it!");
+                    }
+                    break;
+                case "Y":
+                    Console.WriteLine("Gameplay extended 7 more days!" );
+                    RevertCapFromRaise();
+                    dailyweather.Dayeight();
+                    RaiseCap();
+                    purchase.BuyLemons(Mainplayer);
+                    purchase.BuyCups(Mainplayer);
+                    purchase.BuyIce(Mainplayer);
+                    purchase.BuySugar(Mainplayer);
+                    Setprice(Mainplayer);
+                    purchase.Checkinventory(Mainplayer);
+                    purchase.Checkremainingsupplies(Mainplayer);
+                    Console.WriteLine("You missed " + Missedsales.Count + " You sold " + Glassessold.Count);
+                    RestartList();
 
+                    dailyweather.Daynine();
+                    RevertCapFromRaise();
+                    RaiseCap();
+                    purchase.BuyLemons(Mainplayer);
+                    purchase.BuyCups(Mainplayer);
+                    purchase.BuyIce(Mainplayer);
+                    purchase.BuySugar(Mainplayer);
+                    Setprice(Mainplayer);
+                    purchase.Checkinventory(Mainplayer);
+                    purchase.Checkremainingsupplies(Mainplayer);
+                    Console.WriteLine("You missed " + Missedsales.Count + " You sold " + Glassessold.Count);
+                    RestartList();
+
+                    dailyweather.Dayten();
+                    Console.WriteLine("Youre business is becoming so well known people are starting to come out of the way to check it out!");
+                    Console.ReadLine();
+                    RevertCapFromRaise();
+                    AddCustomers();
+                    LowerCap();
+                    purchase.BuyLemons(Mainplayer);
+                    purchase.BuyCups(Mainplayer);
+                    purchase.BuyIce(Mainplayer);
+                    purchase.BuySugar(Mainplayer);
+                    Setprice(Mainplayer);
+                    purchase.Checkinventory(Mainplayer);
+                    purchase.Checkremainingsupplies(Mainplayer);
+                    Console.WriteLine("You missed " + Missedsales.Count + " You sold " + Glassessold.Count);
+                    RestartList();
+
+                    dailyweather.Dayeleven();
+                    RevertCapFromLower();
+                    LowerCap();
+                    purchase.BuyLemons(Mainplayer);
+                    purchase.BuyCups(Mainplayer);
+                    purchase.BuyIce(Mainplayer);
+                    purchase.BuySugar(Mainplayer);
+                    Setprice(Mainplayer);
+                    purchase.Checkinventory(Mainplayer);
+                    purchase.Checkremainingsupplies(Mainplayer);
+                    Console.WriteLine("You missed " + Missedsales.Count + " You sold " + Glassessold.Count);
+                    RestartList();
+
+                    dailyweather.Daytwelve();
+                    RevertCapFromLower();
+                    RaiseCap();
+                    purchase.BuyLemons(Mainplayer);
+                    purchase.BuyCups(Mainplayer);
+                    purchase.BuyIce(Mainplayer);
+                    purchase.BuySugar(Mainplayer);
+                    Setprice(Mainplayer);
+                    purchase.Checkinventory(Mainplayer);
+                    purchase.Checkremainingsupplies(Mainplayer);
+                    Console.WriteLine("You missed " + Missedsales.Count + " You sold " + Glassessold.Count);
+                    RestartList();
+
+                    dailyweather.Daythirteen();
+                    AddCustomers();
+                    Console.WriteLine("Even more customers are coming now so prepare!");
+                    RevertCapFromRaise();
+                    RaiseCap();
+                    purchase.BuyLemons(Mainplayer);
+                    purchase.BuyCups(Mainplayer);
+                    purchase.BuyIce(Mainplayer);
+                    purchase.BuySugar(Mainplayer);
+                    Setprice(Mainplayer);
+                    purchase.Checkinventory(Mainplayer);
+                    purchase.Checkremainingsupplies(Mainplayer);
+                    Console.WriteLine("You missed " + Missedsales.Count + " You sold " + Glassessold.Count);
+                    RestartList();
+
+                    dailyweather.Dayfourteen();
+                    RevertCapFromRaise();
+                    RaiseCap();
+                    purchase.BuyLemons(Mainplayer);
+                    purchase.BuyCups(Mainplayer);
+                    purchase.BuyIce(Mainplayer);
+                    purchase.BuySugar(Mainplayer);
+                    Setprice(Mainplayer);
+                    purchase.Checkinventory(Mainplayer);
+                    purchase.Checkremainingsupplies(Mainplayer);
+                    Console.WriteLine("You missed " + Missedsales.Count + " You sold " + Glassessold.Count);
+                    RestartList();
+                    Console.WriteLine("Thanks for playing!");
+                    if (Mainplayer.cash > 100)
+                    {
+                        Console.WriteLine("You killed it");
+                    }
+                    else if (Mainplayer.cash > 40)
+                    {
+                        Console.WriteLine("Your a lemonade guru");
+                    }
+                    else if (Mainplayer.cash < 30)
+                    {
+                        Console.WriteLine("You barely made it!");
+                    }
+
+                    break;
+                default:
+                    Console.WriteLine("Thanks for playing");
+                    break;
+
+            }
+                   
+            }
+    
+            
+
+            }
     }
-
-}
+     
+         
 
 
 

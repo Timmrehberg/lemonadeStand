@@ -40,6 +40,34 @@ namespace Lemonade
         {
             Console.WriteLine("Day seven: Its 84 and sunny!" );
         }
+        public void Dayeight()
+        {
+            Console.WriteLine("Day eight: Its 101 and humid!");
+        }
+        public void Daynine()
+        {
+            Console.WriteLine("Day nine: Its 85 and clear!");
+        }
+        public void Dayten()
+        {
+            Console.WriteLine("Day ten: Its 50 and windy!");
+        }
+        public void Dayeleven()
+        {
+            Console.WriteLine("Day eleven: Its 43 and cold!");
+        }
+        public void Daytwelve()
+        {
+            Console.WriteLine("Day twelve: Its 65 and clear!");
+        }
+        public void Daythirteen()
+        {
+            Console.WriteLine("Day thirteen: Its 83 and sunny!");
+        }
+        public void Dayfourteen()
+        {
+            Console.WriteLine("Day fourteen: Its 106 and sunny!");
+        }
 
     }
 
