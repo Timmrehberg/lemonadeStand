@@ -207,7 +207,7 @@ namespace Lemonade
             Console.WriteLine("Youre business is starting to get bigger expect more customers!");
             Console.ReadLine();
             AddCustomers();
-            LowerCap();
+            RaiseCap();
             purchase.BuyLemons(Mainplayer);
             purchase.BuyCups(Mainplayer);
             purchase.BuyIce(Mainplayer);
@@ -220,7 +220,7 @@ namespace Lemonade
         }
         public void StartDay5()
         {
-            RevertCapFromLower();
+            RevertCapFromRaise();
             dailyweather.Dayfive();
             RaiseCap();
             purchase.BuyLemons(Mainplayer);
